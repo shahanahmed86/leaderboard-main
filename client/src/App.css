@@ -1,0 +1,31 @@
+html,
+body,
+#root,
+.full-height {
+	height: 100%;
+	overflow: hidden;
+}
+
+.no-margin {
+	margin: 0px;
+}
+
+.no-padding {
+	padding: 0px;
+}
+
+.decent-padding {
+	padding: 10px;
+}
+
+.body-wrapper {
+	height: calc(100% - 64px);
+	overflow-y: auto;
+}
+
+@media only screen and (max-width: 600px) {
+	.body-wrapper {
+		height: calc(100% - 56px);
+		overflow-y: auto;
+	}
+}
