@@ -1,5 +1,8 @@
-var fs = require('fs');
-var path = require('path');
+const fs = require('fs');
+const path = require('path');
+
+const child_process = require('child_process');
+const args = process.argv.slice(2);
 
 function copyFileSync(source, target) {
 	var targetFile = target;
@@ -13,6 +16,18 @@ function copyFileSync(source, target) {
 
 	fs.writeFileSync(targetFile, fs.readFileSync(source));
 }
+
+const executeCommand = (cmd, exit = true) => {
+	if (
+		child_process.spawnSync(cmd, {
+			cwd: process.cwd(),
+			stdio: 'inherit',
+			shell: true
+		}).status
+	)
+		exit && process.exit(1);
+	else return true;
+};
 
 function copyFolderRecursiveSync(source, target) {
 	var files = [];
@@ -37,4 +52,5 @@ function copyFolderRecursiveSync(source, target) {
 	}
 }
 
+executeCommand('rm -rf ../build')
 copyFolderRecursiveSync(path.resolve(__dirname, 'build'), path.resolve(__dirname, '..'));
