@@ -21,7 +21,7 @@ export async function users(req, res) {
 
 		return middleware.handleSuccess(data, res, 200);
 	} catch (error) {
-		middleware.handleError(error, res);
+		return middleware.handleError(error, res);
 	}
 }
 
@@ -33,7 +33,7 @@ export async function user(req, res) {
 
 		return middleware.handleSuccess(data, res, 200);
 	} catch (error) {
-		middleware.handleError(error, res);
+		return middleware.handleError(error, res);
 	}
 }
 
@@ -45,7 +45,7 @@ export async function createUser(req, res) {
 
 		return middleware.handleSuccess(data, res, 201);
 	} catch (error) {
-		middleware.handleError(error, res);
+		return middleware.handleError(error, res);
 	}
 }
 
@@ -74,7 +74,7 @@ export async function updateUser(req, res) {
 
 		return middleware.handleSuccess(data, res, 201);
 	} catch (error) {
-		middleware.handleError(error, res);
+		return middleware.handleError(error, res);
 	}
 }
 
@@ -88,6 +88,6 @@ export async function deleteUser(req, res) {
 
 		return middleware.handleSuccess('User Deleted Successfully', res, 200);
 	} catch (error) {
-		middleware.handleError(error, res);
+		return middleware.handleError(error, res);
 	}
 }

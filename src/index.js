@@ -8,6 +8,9 @@ import bodyParser from 'body-parser';
 import http from 'http';
 import { MONGOOSE_URL, PORT } from './config';
 import { userRoutes } from './routes';
+import path from 'path';
+
+const clientStatic = path.resolve(__dirname, '..', 'build');
 
 mongoose
 	.connect(MONGOOSE_URL, {
@@ -36,6 +39,12 @@ mongoose
 
 		// routes
 		app.use('/api', userRoutes);
+
+		app.use(express.static(clientStatic));
+
+		app.get('**', function (req, res) {
+			res.sendFile(path.resolve(clientStatic, 'index.html'));
+		});
 
 		server.listen(PORT, () => console.log(`http://localhost:${PORT}`));
 	})
