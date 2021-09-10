@@ -5,7 +5,7 @@
 	"main": "index.js",
 	"scripts": {
 		"dev": "cross-env NODE_ENV=development nodemon -r esm .",
-		"build": "cd client && yarn build",
+		"make_build": "cd client && yarn build",
 		"start": "node -r esm ."
 	},
 	"repository": {
