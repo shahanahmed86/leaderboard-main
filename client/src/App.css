@@ -3,7 +3,7 @@ body,
 #root,
 .full-height {
 	height: 100%;
-	overflow: hidden;
+	overflow-y: hidden;
 }
 
 .no-margin {
@@ -67,8 +67,8 @@ body,
 }
 
 .absolute {
-	padding: 10px;
-	border-radius: 15px;
+	padding: 25px;
+	border-radius: 10px;
 	position: absolute;
 	left: 50%;
 	top: 50%;
@@ -76,7 +76,7 @@ body,
 }
 
 .bg-color-absolute {
-	background-color: #597385;
+	background-color: white;
 }
 
 .button {
